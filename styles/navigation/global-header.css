@@ -1,0 +1,24 @@
+
+@layer components{
+    .global-header{
+        @apply bg-red-700 text-zinc-50 flex justify-between items-center p-4 h-[156px];
+        *{
+            @apply bg-red-950 flex items-center;
+        }
+        .global-heading{
+            @apply p-4 text-center h-[100px];
+        }
+        .nav-item{
+            @apply px-4;
+        }
+        .navigation-list{
+            @apply flex;
+        }
+        .global-header-navigation-list{
+            @apply p-4 h-[75px] align-middle;
+        }
+        .global-header-external-link-list{
+            @apply p-4 h-[100px];
+        }
+    }
+}
