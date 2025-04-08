@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { GlobalHeader } from "@/components/navigation/global-header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="flex m-4 gap-4">
-          <h1>Site-header</h1><ul className="flex gap-4"><li>home</li><li>showcase</li><li>projects</li><li><div className="bg-amber-300">github</div></li><li><div className="bg-amber-300">linkedin</div></li></ul>
-        </header>
+        <GlobalHeader />
+          {/* <h1>Site-header</h1><ul className="flex gap-4"><li>home</li><li>showcase</li><li>projects</li><li><div className="bg-amber-300">github</div></li><li><div className="bg-amber-300">linkedin</div></li></ul> */}
         {children}
       </body>
     </html>

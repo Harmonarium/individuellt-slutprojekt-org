@@ -31,8 +31,8 @@ export function GlobalHeader(){
                 <NavItem href="#">Sample Project</NavItem>
             </NavList>
             <NavList className="global-header-external-link-list">
-                <NavItem href="http://www.github.com"><Image src="../public/globe.svg" alt="#"/></NavItem>
-                <NavItem href="http://www.linkedin.com"><Image src="../public/file.svg" alt="#"/></NavItem>
+                <NavItem href="http://www.github.com"><Image src="../public/globe.svg" alt="GitHub profile" width={55} height={55}/></NavItem>
+                <NavItem href="http://www.linkedin.com"><Image src="../public/file.svg" alt="linkedIn profile" width={55} height={55}/></NavItem>
             </NavList>
         </header>
     );
