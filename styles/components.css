@@ -1,0 +1,9 @@
+@import "./components/global-header.css";
+
+@layer components{
+    .sub-heading{
+        @apply bg-amber-300 m-4 text-center;
+    }
+}
+
+
