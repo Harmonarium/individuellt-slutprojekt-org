@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
+import GlobalHeading from "../global-heading";
+import Image from "next/image";
 
 export function NavItem({children, href}:{children:ReactNode, href:string}){
     return(
@@ -11,7 +13,7 @@ export function NavItem({children, href}:{children:ReactNode, href:string}){
     );
 }
 
-export function NavList({children, className}:{children:ReactNode, className:string | undefined}){
+export function NavList({children, className}:{children:ReactNode, className?:string | undefined}){
     return(
         <ul className={className ?? ""}>
             {children}
@@ -20,5 +22,18 @@ export function NavList({children, className}:{children:ReactNode, className:str
 }
 
 export function GlobalHeader(){
-
+    return(
+        <header className="global-header">
+            <GlobalHeading content="Portfolio Site" />
+            <NavList className="global-header-navigation-list">
+                <NavItem href="#">About</NavItem>
+                <NavItem href="#">Showcase</NavItem>
+                <NavItem href="#">Sample Project</NavItem>
+            </NavList>
+            <NavList className="global-header-external-link-list">
+                <NavItem href="http://www.github.com"><Image src="../public/globe.svg" alt="#"/></NavItem>
+                <NavItem href="http://www.linkedin.com"><Image src="../public/file.svg" alt="#"/></NavItem>
+            </NavList>
+        </header>
+    );
 }
