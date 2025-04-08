@@ -1,8 +1,11 @@
 @import "./components/global-header.css";
 
 @layer components{
+    .heading{
+        @apply bg-red-950 text-zinc-50 text-4xl text-center p-4 m-4;
+    }
     .sub-heading{
-        @apply bg-amber-300 m-4 text-center;
+        @apply bg-red-600 text-zinc-50 text-2xl text-center p-4 m-4;
     }
 }
 
