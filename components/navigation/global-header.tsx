@@ -11,8 +11,12 @@ export function NavItem({children, href}:{children:ReactNode, href:string}){
     );
 }
 
-export function SiteNavList(){
-    
+export function SiteNavList({children}:{children:ReactNode}){
+    return(
+        <ul className="site-navigation-list">
+            {children}
+        </ul>
+    );
 }
 
 export function ExtNavList(){
