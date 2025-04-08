@@ -1,9 +1,12 @@
+import Link from "next/link";
 import { ReactNode } from "react";
 
-export function NavItem({children}:{children:ReactNode}){
+export function NavItem({children, href}:{children:ReactNode, href:string}){
     return(
         <li className="nav-item">
-            {children}
+            <Link href={href}>
+                {children}
+            </Link>
         </li>
     );
 }
