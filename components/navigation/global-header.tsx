@@ -28,11 +28,11 @@ export function GlobalHeader(){
             <NavList className="global-header-navigation-list">
                 <NavItem href="#">About</NavItem>
                 <NavItem href="#">Showcase</NavItem>
-                <NavItem href="#">Sample Project</NavItem>
+                <NavItem href="#">Sample<br/>Projects</NavItem>
             </NavList>
             <NavList className="global-header-external-link-list">
-                <NavItem href="http://www.github.com"><Image src="globe.svg" alt="GitHub profile" width={34} height={34}/></NavItem>
-                <NavItem href="http://www.linkedin.com"><Image src="file.svg" alt="linkedIn profile" width={34} height={34}/></NavItem>
+                <NavItem href="http://www.github.com"><Image src="github.svg" alt="GitHub profile" width={34} height={34}/></NavItem>
+                <NavItem href="http://www.linkedin.com"><Image src="linkedin.svg" alt="linkedIn profile" width={34} height={34}/></NavItem>
             </NavList>
         </header>
     );

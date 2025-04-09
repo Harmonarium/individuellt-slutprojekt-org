@@ -2,10 +2,10 @@
 
 @layer components{
     .global-heading{
-        @apply bg-red-950 text-zinc-50 text-4xl text-center;
+        @apply bg-crimson-300 opacity-25 text-zinc-50 text-4xl text-center;
     }
     .sub-heading{
-        @apply bg-red-600 text-zinc-50 text-2xl text-center p-4 m-4;
+        @apply bg-crimson-300 text-zinc-50 text-2xl text-center p-4 m-4;
     }
 }
 
