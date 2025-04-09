@@ -1,18 +1,18 @@
 
 @layer components{
     .global-header{
-        @apply bg-red-700 text-zinc-50 flex justify-between items-center p-4 h-[156px];
+        @apply bg-linear-to-r from-crimson-700 to-crimson-300 text-zinc-50 flex justify-between items-center p-4 h-[156px];
         *{
-            @apply bg-red-950 flex items-center;
+            @apply flex items-center;
         }
         .global-heading{
-            @apply p-4 text-center h-[100px];
+            @apply p-4 text-center h-[100px] bg-crimson-300/25;
         }
         .nav-item{
-            @apply px-4;
+            @apply px-4 text-center;
         }
         .navigation-list{
-            @apply flex;
+            @apply flex bg-crimson-300/75;
         }
         .global-header-navigation-list{
             @apply p-4 h-[75px] align-middle;
