@@ -2,26 +2,27 @@
 @import "../styles/components.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #650e0e;
+  --secondary-color: #ededed;
+  --tertiary-color: #d22727;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-background: var(--primary-color);
+  --color-foreground: var(--secondary-color);
+  --font-sans: var(--font-inter-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary-color: #ededed;
+    --secondary-color: #650e0e;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--primary-color);
+  color: var(--secondary-color);
   font-family: Arial, Helvetica, sans-serif;
 }
