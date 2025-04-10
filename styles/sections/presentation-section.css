@@ -1,9 +1,22 @@
 
 @layer components{
     .presentation-section{
-        @apply flex;
-        article{
-            @apply bg-crimson-300;
+        @apply flex flex-col m-4 gap-4;
+        .section-content{
+            @apply flex flex-col gap-4;
+            article{
+                @apply bg-crimson-700 p-4;
+            }
+            .top-row{
+                @apply flex gap-4;
+                .presentation-article{
+                    @apply bg-crimson-300 grow;
+                }
+            }
+            
+            .background-article{
+                @apply bg-crimson-700;
+            }
         }
     }
 }

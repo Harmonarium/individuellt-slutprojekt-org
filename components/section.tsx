@@ -14,7 +14,10 @@ export default function Section({title, children, className} : SectionProps){
         return ( 
             <section className={className}>
                 <SubHeading content={tit}/>
-                {children}
+                <div className="section-content">
+                    {children}    
+                </div>
+                
             </section>
         );
     }

@@ -6,7 +6,7 @@
         @apply bg-crimson-300 text-zinc-50 text-4xl text-center;
     }
     .sub-heading{
-        @apply bg-crimson-300 text-zinc-50 text-2xl text-center p-4 m-4;
+        @apply bg-crimson-300 text-zinc-50 text-2xl text-center p-4;
     }
 }
 
