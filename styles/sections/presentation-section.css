@@ -1,0 +1,9 @@
+
+@layer components{
+    .presentation-section{
+        @apply flex;
+        article{
+            @apply bg-crimson-300;
+        }
+    }
+}

@@ -4,19 +4,23 @@ import SubHeading from "./sub-heading";
 interface SectionProps{
     title ?: string;
     children ?: ReactNode;
+    className? : string;
 }
 
-export default function Section({title, children} : SectionProps){
-    const tit= title || "";
+export default function Section({title, children, className} : SectionProps){
+    const tit= title ?? "";
+    console.log("title: " + title);
     if (title){
-        return (
-            <section>{children}</section>
+        return ( 
+            <section className={className}>
+                <SubHeading content={tit}/>
+                {children}
+            </section>
         );
     }
     else{
     return(
-        <section>
-            <SubHeading content={tit}/>
+        <section className={className}>
             {children}
         </section>
     );

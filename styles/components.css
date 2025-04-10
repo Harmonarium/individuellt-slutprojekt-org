@@ -1,4 +1,5 @@
 @import "./navigation/global-header.css";
+@import "./sections/presentation-section.css";
 
 @layer components{
     .global-heading{

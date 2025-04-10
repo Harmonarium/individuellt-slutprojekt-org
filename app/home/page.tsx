@@ -1,9 +1,11 @@
+import PresentationSection from "@/components/sections/presentation-section";
 
 export default function LandingPage(){
     function generateShowcase(){}
     return(
         <>
             <main>
+                <PresentationSection />
                 <section className="presentation flex flex-col">
                     <div className="flex m-4 gap-4">
                         <div className="bg-zinc-300 p-10 flex-1">Image</div>
