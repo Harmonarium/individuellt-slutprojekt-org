@@ -6,13 +6,6 @@ export default function LandingPage(){
         <>
             <main>
                 <PresentationSection />
-                <section className="presentation flex flex-col">
-                    <div className="flex m-4 gap-4">
-                        <div className="bg-zinc-300 p-10 flex-1">Image</div>
-                        <div className="bg-red-600 p-10 flex-3">Presentation</div>  
-                    </div>
-                    <div className="bg-red-300 p-10 m-4">Background</div>
-                </section>
                 <section className="showcase">
                     <h2 className="text-center">Showcase</h2>
                     <ul className="flex flex-wrap">
