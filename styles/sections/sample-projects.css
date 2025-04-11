@@ -1,0 +1,20 @@
+
+@layer components{
+    .sample-projects{
+        @apply m-4 flex flex-col gap-4;
+        .section-content{
+            .sample-project-list{
+                @apply flex flex-col gap-4;
+                .sample-project-list-item{
+                    @apply flex bg-linear-to-br from-crimson-700 to-crimson-300 p-4 gap-4;
+                    .sample-project-text{@apply flex flex-col gap-4 w-400;}
+                    p{@apply text-xs;}
+                    button{@apply bg-crimson-300 rounded-2xl text-center text-xs justify-self-center;}
+                    Image{@apply w-200 grow h-100;}
+                    Link{@apply grow w-10;}
+                    .sample-project-social-media-image{@apply }
+                }
+            }
+        }
+    }    
+}
