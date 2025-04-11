@@ -1,4 +1,5 @@
 import PresentationSection from "@/components/sections/presentation-section";
+import ShowcaseSection from "@/components/sections/showcase-section";
 
 export default function LandingPage(){
     function generateShowcase(){}
@@ -6,19 +7,7 @@ export default function LandingPage(){
         <>
             <main>
                 <PresentationSection />
-                <section className="showcase">
-                    <h2 className="text-center">Showcase</h2>
-                    <ul className="flex flex-wrap">
-                        <div className="p-10 m-4 bg-red-300">showcase-item</div>
-                        <div className="p-10 m-4 bg-red-300">showcase-item</div>
-                        <div className="p-10 m-4 bg-red-300">showcase-item</div>
-                        <div className="p-10 m-4 bg-red-300">showcase-item</div>
-                        <div className="p-10 m-4 bg-red-300">showcase-item</div>
-                        <div className="p-10 m-4 bg-red-300">showcase-item</div>
-                        <div className="p-10 m-4 bg-red-300">showcase-item</div>
-                        <div className="p-10 m-4 bg-red-300">showcase-item</div>
-                    </ul>
-                </section>
+                <ShowcaseSection />
                 <section className="sample-projects">
                     <h2 className="text-center">Sample projects</h2>
                     <ul>
