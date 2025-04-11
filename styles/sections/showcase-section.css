@@ -1,0 +1,26 @@
+
+@layer components{
+    .showcase-section{
+        @apply flex flex-col m-4 gap-8;
+        .section-content{
+            @apply flex gap-4;
+            .showcase-list{
+                @apply flex flex-wrap gap-10 justify-center;
+                .showcase-list-item{
+                    @apply flex flex-col items-center bg-crimson-300 w-100 p-4 text-center rounded-xl gap-4;
+                    p{
+                        @apply bg-crimson-300 text-xs;
+                    }
+                    h3{
+                        @apply bg-crimson-700;
+                    }
+                    Image{
+                        @apply bg-zinc-600 grow w-10;
+                    }
+                }
+            }
+
+        }
+        
+    }
+}

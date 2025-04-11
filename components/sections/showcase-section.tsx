@@ -40,14 +40,14 @@ export default function ShowcaseSection(){
     function generateShowcaseItems():ShowcaseItem[]{
         let ims=[];
         for (let x=0;x<10;x++)
-            ims[x] = {id:x, title:"Showcase item "+x, imageUrl: "/vercel.svg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+            ims[x] = {id:x, title:"Showcase item "+(x+1), imageUrl: "/vercel.svg", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
         return ims;
     }
 
     const items:ShowcaseItem[]=generateShowcaseItems();
 
     return (
-        <Section title="Showcase">
+        <Section className="showcase-section" title="Showcase">
             <ShowcaseList listItems={items}/>
 
         </Section>
