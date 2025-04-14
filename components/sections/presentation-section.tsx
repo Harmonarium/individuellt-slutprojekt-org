@@ -1,5 +1,6 @@
 import Section from "../section";
 import Image from "next/image";
+import { fetchPresentationContent } from "@/server_actions/server-actions";
 
 export default function PresentationSection(){
 
