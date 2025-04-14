@@ -19,3 +19,20 @@ export async function fetchPresentationContent(){
     
     
 }
+
+export async function fetchBackgroundContent(){
+    let {data, error} = await supabase.from('Presentation').select('Content(text)').eq('section_name','Background');
+    if(error){
+        console.log("Error: ", error);
+    }
+    else{
+        if(data!=null){
+            console.log(data);
+            let obj=data[0];
+            let content=obj.Content;
+            let text=content.text;
+            return text;
+        }
+            
+    }
+}
