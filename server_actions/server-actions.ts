@@ -1,13 +1,21 @@
 import { supabase } from "./supabase";
 
-/* export async function fetchContent(){
-    let {data, error} = await supabase.from('Content').select('text');
+export async function fetchPresentationContent(){
+    let {data, error} = await supabase.from('Presentation').select('Content(text)').eq('section_name','Presentation');
     if(error){
         console.log("Error: ", error);
     }
     else{
-        console.log(data);
+        if(data!=null){
+            console.log(data);
+            let obj=data[0];
+            let content=obj.Content;
+            let text=content.text;
+            console.log(text);
+            return text;
+        }
+        
     }
     
-    //console.log(data.text);
-} */
+    
+}
