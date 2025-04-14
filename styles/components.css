@@ -1,6 +1,7 @@
 @import "./navigation/global-header.css";
 @import "./sections/presentation-section.css";
 @import "./sections/showcase-section.css";
+@import "./sections/sample-projects.css";
 
 @layer components{
     .global-heading{
@@ -8,6 +9,8 @@
     }
     .sub-heading{
         @apply bg-crimson-300 text-zinc-50 text-2xl text-center p-4;
+    }
+    .section{
     }
 }
 

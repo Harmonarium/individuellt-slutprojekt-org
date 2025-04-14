@@ -49,7 +49,7 @@ export default function ShowcaseSection(){
     return (
         <Section className="showcase-section" title="Showcase">
             <ShowcaseList listItems={items}/>
-
+            
         </Section>
     );
 }
