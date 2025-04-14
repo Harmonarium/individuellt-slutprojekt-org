@@ -12,7 +12,7 @@
                     button{@apply bg-crimson-300 rounded-2xl text-center text-xs justify-self-center;}
                     Image{@apply w-200 grow h-100;}
                     Link{@apply grow w-10;}
-                    .sample-project-social-media-image{@apply }
+                    .sample-project-social-media-image{@apply h-10;}
                 }
             }
         }
