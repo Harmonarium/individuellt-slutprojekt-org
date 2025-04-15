@@ -1,5 +1,10 @@
+"use client"
+
 import { ShowcaseItem } from "@/interfaces/showcase-item";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+
 
 function ShowcaseDisplay({item}:{item:ShowcaseItem}){
 
@@ -14,7 +19,7 @@ function ShowcaseControlPanel({item}:{item:ShowcaseItem}){
 
     return(
         <div className="showcase-control-panel">
-        
+            
         </div>
     );
 }
@@ -22,15 +27,19 @@ function ShowcaseControlPanel({item}:{item:ShowcaseItem}){
 interface ShowcaseNavigationProps{
     currentIndex: number;
     maxIndex: number;
+    title: string;
     onNext: ()=>void;
     onPrevious: ()=>void;
 }
 
-function ShowcaseNavigationPanel({onNext, onPrevious, currentIndex, maxIndex}: ShowcaseNavigationProps){
-
+function ShowcaseNavigationPanel({onNext, onPrevious, currentIndex, title = "Example "+currentIndex+1,  maxIndex}: ShowcaseNavigationProps){
+    const router=useRouter();
     return(
         <div className="showcase-navigation-panel">
-        
+            <button onClick={()=>router.push('/home')}>Back</button>
+            <h2>{title}</h2>
+            <button onClick={onNext}>Next</button>
+            <button onClick={onPrevious}>Previous</button>
         </div>
     );
 }
@@ -50,7 +59,7 @@ export default function ShowcaseContainer({showcases, index = 0}:{showcases:Show
 
     return(
         <div className="ShowcaseContainer">
-            <ShowcaseNavigationPanel currentIndex={currentIndex} maxIndex={showcases.length-1} onNext={()=>onNextClick()} onPrevious={()=>onPreviousClick()} />
+            <ShowcaseNavigationPanel currentIndex={currentIndex} maxIndex={showcases.length-1} title={showcases[currentIndex].title} onNext={()=>onNextClick()} onPrevious={()=>onPreviousClick()} />
             <div className="showcase">
                 <ShowcaseControlPanel item={showcases[currentIndex]} />
                 <ShowcaseDisplay item={showcases[currentIndex]} />
