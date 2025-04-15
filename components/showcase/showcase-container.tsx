@@ -19,7 +19,8 @@ function ShowcaseControlPanel({item}:{item:ShowcaseItem}){
 
     return(
         <div className="showcase-control-panel">
-            
+            <p>{item.description}</p>
+            {item.controlPanel}
         </div>
     );
 }
