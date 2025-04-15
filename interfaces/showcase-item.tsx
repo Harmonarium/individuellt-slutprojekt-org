@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 type showcaseEventHandler = () => void;
 
-interface ShowcaseItem{
+export interface ShowcaseItem{
     displayPanel: ReactNode;
     controlPanel: ReactNode;
     eventTargets: ReactNode[];

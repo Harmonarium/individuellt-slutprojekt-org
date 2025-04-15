@@ -27,7 +27,7 @@ export function GlobalHeader(){
             <GlobalHeading content="Portfolio Site" />
             <NavList className="global-header-navigation-list">
                 <NavItem href="#">About</NavItem>
-                <NavItem href="#">Showcase</NavItem>
+                <NavItem href="/showcase">Showcase</NavItem>
                 <NavItem href="#">Sample<br/>Projects</NavItem>
             </NavList>
             <NavList className="global-header-external-link-list">
