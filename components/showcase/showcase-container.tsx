@@ -10,7 +10,7 @@ function ShowcaseDisplay({item}:{item:ShowcaseItem}){
 
     return(
         <div className="showcase-display">
-        
+            {item.displayPanel}
         </div>
     );
 }
