@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-type showcaseEventHandler = () => void;
+export type showcaseEventHandler = () => void;
 
 export interface ShowcaseItem{
     displayPanel: ReactNode;
