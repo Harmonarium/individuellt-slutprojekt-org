@@ -7,8 +7,15 @@ import { ReactElement } from "react";
 function generateShowcases():ShowcaseItem[]{
     let showcases:ShowcaseItem[] = [];
     let et01:ReactElement<HTMLDivElement>=<div id="dp01_et01" className="showcase-box bg-blue-400 w-200 h-200"></div>;
-    const eH01=()=>{et01.props.classList.replace("bg-blue-400","bg-amber-400")}
-    let ip01=<input id="cp01_ip01" className="showcase-input-button" type="button" onClick={eH01}>Change Color</input>;
+    const eH01=()=>{
+        const et=document.getElementById("dp01_et01");
+        if(et){
+            et.classList.replace("bg-blue-400","bg-zinc-400");
+            et.style.backgroundColor="yellow";    
+        }
+            
+    }
+    let ip01:ReactElement<HTMLInputElement>=<input id="cp01_ip01" className="showcase-input-button" type="button" onClick={eH01} value="Change Color"/>;
 
     let showcase:ShowcaseItem = {
         title:"test",
@@ -17,8 +24,8 @@ function generateShowcases():ShowcaseItem[]{
         inputs: [ip01],
         eventHandlers: [eH01],
         eventTargets: [et01],
-        controlPanel: <div id="cp01" className="control-panel"></div>,
-        displayPanel: <div id="dp01" className="display-panel"></div>
+        controlPanel: <div id="cp01" className="control-panel">{ip01}</div>,
+        displayPanel: <div id="dp01" className="display-panel">{et01}</div>
     }
 
     showcases.push(showcase);

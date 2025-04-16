@@ -1,0 +1,19 @@
+
+@layer components{
+    .showcase-container{
+        @apply w-500 h-500 flex flex-col gap-4 m-4;
+        .showcase-navigation-panel{
+            @apply bg-crimson-300 flex gap-4 h-20 p-4;
+        }
+        .showcase{
+            @apply flex h-100 gap-4;
+            .showcase-control-panel{
+                @apply bg-crimson-300 flex flex-col w-50 text-xs p-4 tracking-normal;
+            }
+            .showcase-display{
+                @apply bg-zinc-300 w-200;
+            }
+        }
+        
+    }
+}

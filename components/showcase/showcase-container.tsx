@@ -59,7 +59,7 @@ export default function ShowcaseContainer({showcases, index = 0}:{showcases:Show
     },[currentIndex]);
 
     return(
-        <div className="ShowcaseContainer">
+        <div className="showcase-container">
             <ShowcaseNavigationPanel currentIndex={currentIndex} maxIndex={showcases.length-1} title={showcases[currentIndex].title} onNext={()=>onNextClick()} onPrevious={()=>onPreviousClick()} />
             <div className="showcase">
                 <ShowcaseControlPanel item={showcases[currentIndex]} />
