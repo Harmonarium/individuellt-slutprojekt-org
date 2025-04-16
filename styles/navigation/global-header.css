@@ -1,7 +1,7 @@
 
 @layer components{
     .global-header{
-        @apply bg-linear-to-r from-crimson-700 to-crimson-300 text-zinc-50 flex justify-between items-center p-4 h-[156px];
+        @apply fixed bg-linear-to-r from-crimson-700 to-crimson-300 text-zinc-50 flex justify-between items-center p-4 h-[156px] w-full top-0 z-50;
         *{
             @apply flex items-center;
         }
@@ -9,7 +9,7 @@
             @apply p-4 text-center h-[100px] bg-crimson-300/25;
         }
         .nav-item{
-            @apply px-4 text-center;
+            @apply px-4 text-center transition hover:scale-110 ease-in-out duration-300;
         }
         .navigation-list{
             @apply flex bg-crimson-300/75;
