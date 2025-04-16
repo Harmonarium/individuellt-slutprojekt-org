@@ -2,6 +2,7 @@
 @import "./sections/presentation-section.css";
 @import "./sections/showcase-section.css";
 @import "./sections/sample-projects.css";
+@import "./showcase/showcase-container.css";
 
 @layer components{
     .global-heading{

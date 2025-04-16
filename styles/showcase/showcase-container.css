@@ -1,0 +1,28 @@
+
+@layer components{
+    .showcase-container{
+        @apply w-500 h-500 flex flex-col gap-4 m-4;
+        .showcase-navigation-panel{
+            @apply bg-crimson-300 flex gap-4 h-20 p-4;
+        }
+        .showcase{
+            @apply flex h-100 gap-4;
+            .showcase-control-panel{
+                @apply bg-crimson-300 flex flex-col w-50 text-xs p-4 tracking-normal gap-4;
+                .control-panel{
+                    @apply flex flex-col gap-4;
+                }
+                .showcase-input-button{
+                    @apply bg-zinc-500 p-2 rounded-2xl w-20;
+                }
+            }
+            .showcase-display{
+                @apply bg-zinc-300 w-400 h-100;
+                .display-panel{
+                    @apply flex;
+                }
+            }
+        }
+        
+    }
+}

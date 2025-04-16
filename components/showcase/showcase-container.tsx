@@ -37,10 +37,11 @@ function ShowcaseNavigationPanel({onNext, onPrevious, currentIndex, title = "Exa
     const router=useRouter();
     return(
         <div className="showcase-navigation-panel">
-            <button onClick={()=>router.push('/home')}>Back</button>
-            <h2>{title}</h2>
-            <button onClick={onNext}>Next</button>
+            <button className="text-center align-text-bottom" onClick={()=>router.push('/home')}>Back</button>
+            <h2 className="align-middle text-center">{title}</h2>
             <button onClick={onPrevious}>Previous</button>
+            <p>0{currentIndex+1}/0{maxIndex}</p>
+            <button onClick={onNext}>Next</button>            
         </div>
     );
 }
@@ -59,8 +60,8 @@ export default function ShowcaseContainer({showcases, index = 0}:{showcases:Show
     },[currentIndex]);
 
     return(
-        <div className="ShowcaseContainer">
-            <ShowcaseNavigationPanel currentIndex={currentIndex} maxIndex={showcases.length-1} title={showcases[currentIndex].title} onNext={()=>onNextClick()} onPrevious={()=>onPreviousClick()} />
+        <div className="showcase-container">
+            <ShowcaseNavigationPanel currentIndex={currentIndex} maxIndex={showcases.length} title={showcases[currentIndex].title} onNext={()=>onNextClick()} onPrevious={()=>onPreviousClick()} />
             <div className="showcase">
                 <ShowcaseControlPanel item={showcases[currentIndex]} />
                 <ShowcaseDisplay item={showcases[currentIndex]} />
