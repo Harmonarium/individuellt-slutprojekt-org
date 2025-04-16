@@ -7,7 +7,7 @@
             .showcase-list{
                 @apply flex flex-wrap gap-10 justify-center;
                 .showcase-list-item{
-                    @apply flex flex-col items-center bg-crimson-300 w-100 p-4 text-center rounded-xl gap-4;
+                    @apply flex flex-col items-center bg-crimson-300 w-100 p-4 text-center rounded-xl gap-4 transition hover:scale-110 duration-300 ease-in-out cursor-crosshair;
                     p{
                         @apply bg-crimson-300 text-xs;
                     }

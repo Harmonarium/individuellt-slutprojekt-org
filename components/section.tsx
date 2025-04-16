@@ -12,7 +12,7 @@ export default function Section({title, children, className} : SectionProps){
     console.log("title: " + title);
     if (title){
         return ( 
-            <section className={className}>
+            <section className={className+" section"}>
                 <SubHeading content={tit}/>
                 <div className="section-content">
                     {children}    
