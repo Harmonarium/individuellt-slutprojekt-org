@@ -1,5 +1,4 @@
 "use client"
-
 import { JSONShowcaseItem, showcaseEventHandler, ShowcaseItem } from "@/interfaces/showcase-item";
 import { fetchJSONShowcases } from "@/server_actions/json-actions";
 import { ReactElement } from "react";
@@ -67,31 +66,30 @@ export function generateShowcaseFromJSON(jItem:JSONShowcaseItem):ShowcaseItem{
             ets.push(et);
         } 
     })
-    jItem.eventTargetIDs.map((id)=>{
+    jItem.inputIDs.map((id)=>{
         const ip= document.getElementById(id);
         if(ip){
             ips.push(ip);
         } 
     })
+    const eHandlers: {[key:string]:showcaseEventHandler}= {
+
+    }
+    jItem.eventHandlers.map((ev,index)=>{
+        eHandlers[`eH0${index+1}`] = new Function(ev.function.arguments, ev.function.body) as showcaseEventHandler;
+    })
+    
 
     let sItem:ShowcaseItem = {
         title:jItem.title,
         description: jItem.description,
         imageURL: jItem.imageURL,
-        displayPanel: <JsxParser jsx={jItem.displayPanel}/>, 
-        controlPanel: <JsxParser jsx={jItem.controlPanel}/>,
+        displayPanel: <JsxParser jsx={jItem.displayPanel} />, 
+        controlPanel: <JsxParser jsx={jItem.controlPanel} bindings={eHandlers}/>,
         eventTargets: ets,
         eventHandlers:ehs,
         inputs: ips,
     }
 
     return sItem;
-}
-
-export async function geneateShowcasesFromJSON(){
-    const JSONshowcases:JSONShowcaseItem[] = await fetchJSONShowcases();
-    const showcases:ShowcaseItem[]=[];
-    for(const jsi of JSONshowcases){
-
-    }
 }

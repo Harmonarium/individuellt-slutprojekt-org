@@ -59,13 +59,22 @@ export default function ShowcaseContainer({showcases, index = 0}:{showcases:Show
 
     },[currentIndex]);
 
-    return(
-        <div className="showcase-container">
-            <ShowcaseNavigationPanel currentIndex={currentIndex} maxIndex={showcases.length} title={showcases[currentIndex].title} onNext={()=>onNextClick()} onPrevious={()=>onPreviousClick()} />
-            <div className="showcase">
-                <ShowcaseControlPanel item={showcases[currentIndex]} />
-                <ShowcaseDisplay item={showcases[currentIndex]} />
+    console.log("showcase container, showcases.length = "+showcases.length);
+
+    if(showcases.length>0){
+        return(
+            <div className="showcase-container">
+                <ShowcaseNavigationPanel currentIndex={currentIndex} maxIndex={showcases.length} title={showcases[currentIndex].title} onNext={()=>onNextClick()} onPrevious={()=>onPreviousClick()} />
+                <div className="showcase">
+                    <ShowcaseControlPanel item={showcases[currentIndex]} />
+                    <ShowcaseDisplay item={showcases[currentIndex]} />
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+    else{
+        return (
+            <div className="text-zinc-950 text-9xl">Loading...</div>
+        )
+    }
 }
