@@ -23,8 +23,8 @@ export interface JSONShowcaseItem{
 export interface ShowcaseItem{
     displayPanel: ReactNode;
     controlPanel: ReactNode;
-    eventTargets: ReactNode[];
-    inputs: ReactNode[];
+    eventTargets: HTMLElement[];
+    inputs: HTMLElement[];
     eventHandlers: showcaseEventHandler[];
     description: string;
     title: string;

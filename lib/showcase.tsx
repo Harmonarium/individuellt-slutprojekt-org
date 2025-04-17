@@ -1,7 +1,11 @@
-import { ShowcaseItem } from "@/interfaces/showcase-item";
-import { ReactElement } from "react";
+"use client"
 
-function generateShowcase(startColor:string, description:string, title:string, index:number):ShowcaseItem{
+import { JSONShowcaseItem, showcaseEventHandler, ShowcaseItem } from "@/interfaces/showcase-item";
+import { fetchJSONShowcases } from "@/server_actions/json-actions";
+import { ReactElement } from "react";
+import JsxParser from "react-jsx-parser";
+
+function generateExampleShowcase(startColor:string, description:string, title:string, index:number):ShowcaseItem{
     let et01:ReactElement<HTMLDivElement>=<div id={`dp0${index}_et01`} style={{backgroundColor:startColor}} className={`showcase-box bg-${startColor}-400 w-20 h-20`}></div>;
     let eH01=()=>{
         let et=document.getElementById(`dp0${index}_et01`);
@@ -35,20 +39,59 @@ function generateShowcase(startColor:string, description:string, title:string, i
         title:title,
         imageURL:"/vercel.svg",
         description:description,
-        inputs: [ip01, ip02, ip03],
+        inputs: [document.getElementById(ip01.props.id)!, document.getElementById(ip02.props.id)!, document.getElementById(ip03.props.id)!],
         eventHandlers: [eH01,eH02,eH03],
-        eventTargets: [et01],
+        eventTargets: [document.getElementById(et01.props.id)!],
         controlPanel: <div id={`cp0${index}`} className="control-panel">{ip01}{ip02}{ip03}</div>,
         displayPanel: <div id={`dp0${index}`} className="display-panel">{et01}</div>
     }
     return showcase;
 };
 
-export default function generateShowcases():ShowcaseItem[]{
+export function generateExampleShowcases():ShowcaseItem[]{
     let showcases:ShowcaseItem[] = [
-        generateShowcase('red', 'Change the color, starts on red.', 'Change Color(red)',1),
-        generateShowcase('blue', 'Change the color, starts on blue.', 'Change Color(blue)',2),
-        generateShowcase('yellow', 'Change the color, starts on yellow.', 'Change Color(yellow)',3)
+        generateExampleShowcase('red', 'Change the color, starts on red.', 'Change Color(red)',1),
+        generateExampleShowcase('blue', 'Change the color, starts on blue.', 'Change Color(blue)',2),
+        generateExampleShowcase('yellow', 'Change the color, starts on yellow.', 'Change Color(yellow)',3)
     ];
     return showcases;
+}
+
+export function generateShowcaseFromJSON(jItem:JSONShowcaseItem):ShowcaseItem{
+    const ets:HTMLElement[] = [];
+    const ehs:showcaseEventHandler[] = [];
+    const ips:HTMLElement[] = [];
+    jItem.eventTargetIDs.map((id)=>{
+        const et= document.getElementById(id);
+        if(et){
+            ets.push(et);
+        } 
+    })
+    jItem.eventTargetIDs.map((id)=>{
+        const ip= document.getElementById(id);
+        if(ip){
+            ips.push(ip);
+        } 
+    })
+
+    let sItem:ShowcaseItem = {
+        title:jItem.title,
+        description: jItem.description,
+        imageURL: jItem.imageURL,
+        displayPanel: <JsxParser jsx={jItem.displayPanel}/>, 
+        controlPanel: <JsxParser jsx={jItem.controlPanel}/>,
+        eventTargets: ets,
+        eventHandlers:ehs,
+        inputs: ips,
+    }
+
+    return sItem;
+}
+
+export async function geneateShowcasesFromJSON(){
+    const JSONshowcases:JSONShowcaseItem[] = await fetchJSONShowcases();
+    const showcases:ShowcaseItem[]=[];
+    for(const jsi of JSONshowcases){
+
+    }
 }

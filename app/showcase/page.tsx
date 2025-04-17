@@ -1,11 +1,11 @@
 import ShowcaseContainer from "@/components/showcase/showcase-container";
-import generateShowcases from "@/lib/showcase";
+import {generateExampleShowcases} from "@/lib/showcase";
 
 export default function Showcase(){
 
     return(
         <>
-            <ShowcaseContainer showcases={generateShowcases()} index={0}/>
+            <ShowcaseContainer showcases={generateExampleShowcases()} index={0}/>
         </>
     );
 }
