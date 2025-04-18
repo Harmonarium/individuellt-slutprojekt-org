@@ -3,21 +3,21 @@
         {
             "title":"Showcase 1",
             "description":"An example showcase. Interact with inputs to make something happen in the display. (or interact with display directly)",
-            "displayPanel":"<div id={`dp${index}`}><div id={`dp${index}_et01`} style={{backgroundColor:'black'}}></div></div>",
-            "controlPanel":"<div><input id={`cp${index}_ip01} type='button' value='button 1' onClick={eH01}/><input id={`cp${index}_ip01} type='button' value='button 2' onClick={eH02}></div>",
+            "displayPanel":"<div id={`dp${index}`} className='display-panel'><div id={`dp${index}_et01`} className='showcase-box' style={{backgroundColor:'black'}}></div></div>",
+            "controlPanel":"<div id={`cp${index}`} className='control-panel'><div></div><input id={`cp${index}_ip01`} className='showcase-input-button' type='button' value='button 1' onClick={eH01}/><input id={`cp${index}_ip01`} className='showcase-input-button' type='button' value='button 2' onClick={eH02}/></div>",
             "eventTargetIDs": ["dp01_et01"],
             "inputIDs":["cp01_ip01","cp01_ip01"],
             "eventHandlers":[
                 {"function" : {"arguments":"target", "body":"document.getElementByID(target).style.backgroundColor='red';"}},
-                {"function" : {"arguments":"target", "body":"document.getElementByID(target).style.backgroundColor='blue;"}}
+                {"function" : {"arguments":"target", "body":"document.getElementByID(target).style.backgroundColor='blue';"}}
             ],
             "imageURL":"/next.svg"
         },
         {
             "title":"Showcase 2",
             "description":"An example showcase. Interact with inputs to make something happen in the display. (or interact with display directly)",
-            "displayPanel":"<div id={`dp${index}`}><div id={`dp${index}_et01`} style={{backgroundColor:'black'}}></div></div>",
-            "controlPanel":"<div><input id={`cp${index}_ip01} type='button' value='button 1' onClick={eH01}/><input id={`cp${index}_ip01} type='button' value='button 2' onClick={eH02}></div>",
+            "displayPanel":"<div id={`dp${index}`} className='display-panel'><div id={`dp${index}_et01`} className='showcase-box' style={{backgroundColor:'purple'}}></div></div>",
+            "controlPanel":"<div id={`cp${index}`} className='control-panel'><input id={`cp${index}_ip01`} className='showcase-input-button' type='button' value='button 1' onClick={eH01}/><input id={`cp${index}_ip01`} className='showcase-input-button' type='button' value='button 2' onClick={eH02}/></div>",
             "eventTargetIDs": ["dp02_et01"],
             "inputIDs":["cp02_ip01","cp02_ip01"],
             "eventHandlers":[

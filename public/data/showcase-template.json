@@ -1,8 +1,8 @@
 {
     "title":"Showcase 1",
     "description":"An example showcase. Interact with inputs to make something happen in the display. (or interact with display directly)",
-    "displayPanel":"<div id={`dp${index}`}><div id={`dp${index}_et01`}></div></div>",
-    "controlPanel":"<div><input id={`cp${index}_ip01} type='button' value='button 1' onClick={eH01}/><input id={`cp${index}_ip01} type='button' value='button 2' onClick={eH02}></div>",
+    "displayPanel":"<div id={`dp${index`} className='display-panel'}><div id={`dp${index}_et01`} className='showcase-box'></div></div>",
+    "controlPanel":"<div id={`dp${index`} className='control-panel'}><input id={`cp${index}_ip01} className='showcase-input-button' type='button' value='button 1' onClick={eH01} /><input id={`cp${index}_ip01} className='showcase-input-button' type='button' value='button 2' onClick={eH02} /></div>",
     "eventTargetIDs": ["dp01_et01"],
     "inputIDs":["cp01_ip01","cp01_ip01"],
     "eventHandlers":[

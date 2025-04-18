@@ -75,8 +75,10 @@ export function generateShowcaseFromJSON(jItem:JSONShowcaseItem):ShowcaseItem{
     const eHandlers: {[key:string]:showcaseEventHandler}= {
 
     }
+    
     jItem.eventHandlers.map((ev,index)=>{
-        eHandlers[`eH0${index+1}`] = new Function(ev.function.arguments, ev.function.body) as showcaseEventHandler;
+        console.log("event handler, Arguments: "+ev.function.arguments+" body: "+ev.function.body);
+        eHandlers[`eH0${index+1}`] = (Function(ev.function.arguments, ev.function.body) as showcaseEventHandler) ;
     })
     
 
@@ -87,7 +89,7 @@ export function generateShowcaseFromJSON(jItem:JSONShowcaseItem):ShowcaseItem{
         displayPanel: <JsxParser jsx={jItem.displayPanel} />, 
         controlPanel: <JsxParser jsx={jItem.controlPanel} bindings={eHandlers}/>,
         eventTargets: ets,
-        eventHandlers:ehs,
+        eventHandlers: ehs,
         inputs: ips,
     }
 
