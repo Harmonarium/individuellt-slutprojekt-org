@@ -6,6 +6,8 @@ export interface JSONfunction{
     function: {
         arguments:string;
         body:string;
+        inputIndex:string,
+        targetIndex:string,
     }
 }
 

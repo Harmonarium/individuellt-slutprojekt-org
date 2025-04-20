@@ -56,38 +56,47 @@ export function generateExampleShowcases():ShowcaseItem[]{
     return showcases;
 }
 
-export function generateShowcaseFromJSON(jItem:JSONShowcaseItem):ShowcaseItem{
+export function generateShowcaseFromJSON(jItem:JSONShowcaseItem, itemIndex:number):ShowcaseItem{
+    const cPanel = <JsxParser jsx={jItem.controlPanel} />
+    const dPanel = <JsxParser jsx={jItem.displayPanel} />
+
     const ets:HTMLElement[] = [];
     const ehs:showcaseEventHandler[] = [];
     const ips:HTMLElement[] = [];
-    jItem.eventTargetIDs.map((id)=>{
-        const et= document.getElementById(id);
+
+    jItem.eventTargetIDs.map((id, index)=>{
+        const et = document.getElementById(id);
         if(et){
+            et.id=`dp_${itemIndex}_et${index}`;
             ets.push(et);
         } 
     })
-    jItem.inputIDs.map((id)=>{
-        const ip= document.getElementById(id);
+
+    jItem.inputIDs.map((id, index)=>{
+        const ip = document.getElementById(id);
         if(ip){
+            ip.id = `cp_${itemIndex}_ip${index}`;
             ips.push(ip);
         } 
     })
-    const eHandlers: {[key:string]:showcaseEventHandler}= {
 
-    }
+    /* const eHandlers: {[key:string]:showcaseEventHandler}= {} */
     
-    jItem.eventHandlers.map((ev,index)=>{
-        console.log("event handler, Arguments: "+ev.function.arguments+" body: "+ev.function.body);
-        eHandlers[`eH0${index+1}`] = (Function(ev.function.arguments, ev.function.body) as showcaseEventHandler) ;
+    jItem.eventHandlers.map((ev,ind)=>{
+        console.log("event handler, Arguments: "+ev.function.arguments+" body: "+ev.function.body," input index: ", ev.function.inputIndex, " target index: ", ev.function.targetIndex);
+        const eh = (Function(ev.function.body) as showcaseEventHandler);
+        /* eHandlers[`eH0${ind+1}`] = (Function(ev.function.body) as showcaseEventHandler) ; */
     })
     
+    /* eHandlers.eH01(); */
+    /* eHandlers.index=1; */
 
     let sItem:ShowcaseItem = {
         title:jItem.title,
         description: jItem.description,
         imageURL: jItem.imageURL,
-        displayPanel: <JsxParser jsx={jItem.displayPanel} />, 
-        controlPanel: <JsxParser jsx={jItem.controlPanel} bindings={eHandlers}/>,
+        displayPanel: dPanel, 
+        controlPanel: cPanel,
         eventTargets: ets,
         eventHandlers: ehs,
         inputs: ips,

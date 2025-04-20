@@ -1,13 +1,13 @@
 {
     "title":"Showcase 1",
     "description":"An example showcase. Interact with inputs to make something happen in the display. (or interact with display directly)",
-    "displayPanel":"<div id={`dp${index`} className='display-panel'}><div id={`dp${index}_et01`} className='showcase-box'></div></div>",
-    "controlPanel":"<div id={`dp${index`} className='control-panel'}><input id={`cp${index}_ip01} className='showcase-input-button' type='button' value='button 1' onClick={eH01} /><input id={`cp${index}_ip01} className='showcase-input-button' type='button' value='button 2' onClick={eH02} /></div>",
-    "eventTargetIDs": ["dp01_et01"],
-    "inputIDs":["cp01_ip01","cp01_ip01"],
+    "displayPanel":"<div className='display-panel'}><div id='et1' className='event-target showcase-box'></div></div>",
+    "controlPanel":"<div className='control-panel'}><input id='ip1' className='showcase-input showcase-input-button' type='button' value='button 1' /><input id='ip2' className='showcase-input-button' type='button' value='button 2' /></div>",
+    "eventTargetIDs": ["et1"],
+    "inputIDs":["ip2","ip2"],
     "eventHandlers":[
-        {"function" : {"arguments":"", "body":""}},
-        {"function" : {"arguments":"", "body":""}}
+        {"function" : {"arguments":"", "body":"" , "inputIndex": "0", "targetIndex": "0"}},
+        {"function" : {"arguments":"", "body":"" , "inputIndex": "1", "targetIndex": "0"}}
     ],
     "imageURL":"/next.svg"
 }

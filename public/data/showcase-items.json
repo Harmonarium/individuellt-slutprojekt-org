@@ -3,26 +3,26 @@
         {
             "title":"Showcase 1",
             "description":"An example showcase. Interact with inputs to make something happen in the display. (or interact with display directly)",
-            "displayPanel":"<div id={`dp${index}`} className='display-panel'><div id={`dp${index}_et01`} className='showcase-box' style={{backgroundColor:'black'}}></div></div>",
-            "controlPanel":"<div id={`cp${index}`} className='control-panel'><div></div><input id={`cp${index}_ip01`} className='showcase-input-button' type='button' value='button 1' onClick={eH01}/><input id={`cp${index}_ip01`} className='showcase-input-button' type='button' value='button 2' onClick={eH02}/></div>",
-            "eventTargetIDs": ["dp01_et01"],
-            "inputIDs":["cp01_ip01","cp01_ip01"],
+            "displayPanel":"<div className='display-panel'><div id='et1' className='event-target showcase-box' style={{backgroundColor:'black'}}></div></div>",
+            "controlPanel":"<div className='control-panel'><input id='ip1' className='showcase-input showcase-input-button' type='button' value='button 1' /><input id='ip2' className='showcase-input showcase-input-button' type='button' value='button 2' /></div>",
+            "eventTargetIDs": ["et1"],
+            "inputIDs":["ip1","ip2"],
             "eventHandlers":[
-                {"function" : {"arguments":"target", "body":"document.getElementByID(target).style.backgroundColor='red';"}},
-                {"function" : {"arguments":"target", "body":"document.getElementByID(target).style.backgroundColor='blue';"}}
+                {"function" : {"arguments":"target", "body":"console.log('clicked button in showcase -this function was generated from JSON-');" , "inputIndex": "0", "targetIndex": "0"}},
+                {"function" : {"arguments":"target", "body":"document.getElementById(target).style.backgroundColor='blue';" , "inputIndex": "1", "targetIndex": "0"}}
             ],
             "imageURL":"/next.svg"
         },
         {
             "title":"Showcase 2",
             "description":"An example showcase. Interact with inputs to make something happen in the display. (or interact with display directly)",
-            "displayPanel":"<div id={`dp${index}`} className='display-panel'><div id={`dp${index}_et01`} className='showcase-box' style={{backgroundColor:'purple'}}></div></div>",
-            "controlPanel":"<div id={`cp${index}`} className='control-panel'><input id={`cp${index}_ip01`} className='showcase-input-button' type='button' value='button 1' onClick={eH01}/><input id={`cp${index}_ip01`} className='showcase-input-button' type='button' value='button 2' onClick={eH02}/></div>",
-            "eventTargetIDs": ["dp02_et01"],
-            "inputIDs":["cp02_ip01","cp02_ip01"],
+            "displayPanel":"<div className='display-panel'><div id='et1' className='event-target showcase-box' style={{backgroundColor:'purple'}}></div></div>",
+            "controlPanel":"<div className='control-panel'><input id='ip1' className='showcase-input showcase-input-button' type='button' value='button 1' /><input id='ip2' className='showcase-input showcase-input-button' type='button' value='button 2' /></div>",
+            "eventTargetIDs": ["et1"],
+            "inputIDs":["ip1","ip2"],
             "eventHandlers":[
-                {"function" : {"arguments":"target", "body":"document.getElementByID(target).style.backgroundColor='green';"}},
-                {"function" : {"arguments":"target", "body":"document.getElementByID(target).style.backgroundColor='yellow';"}}
+                {"function" : {"arguments":"target", "body":"document.getElementById(target).style.backgroundColor='green';" , "inputIndex": "0", "targetIndex": "0"}},
+                {"function" : {"arguments":"target", "body":"document.getElementById(target).style.backgroundColor='yellow';" , "inputIndex": "1", "targetIndex": "0"}}
             ],
             "imageURL":"/next.svg"
         }
