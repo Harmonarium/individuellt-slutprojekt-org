@@ -58,7 +58,6 @@ export default function ShowcaseContainer({showcases, index = 0}:{showcases:Unmo
     },[]);
     useEffect(()=>{
         const sitem = showcases[currentIndex];
-        console.log();
         if(sitem && ("initialized" in sitem) && !sitem.initialized)
         initializeShowcaseitem(sitem, index);
     },[currentIndex]);

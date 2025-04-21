@@ -9,7 +9,6 @@ function generateExampleShowcase(startColor:string, description:string, title:st
     let eH01=()=>{
         let et=document.getElementById(`dp0${index}_et01`);
         if(et){
-            /* et.classList.replace("bg-blue-400","bg-zinc-400"); */
             et.style.backgroundColor="yellow";    
         }
             
@@ -17,7 +16,6 @@ function generateExampleShowcase(startColor:string, description:string, title:st
     let eH02=()=>{
         let et=document.getElementById(`dp0${index}_et01`);
         if(et){
-            /* et.classList.replace("bg-blue-400","bg-zinc-400"); */
             et.style.backgroundColor="blue";    
         }
             
@@ -25,7 +23,6 @@ function generateExampleShowcase(startColor:string, description:string, title:st
     let eH03=()=>{
         let et=document.getElementById(`dp0${index}_et01`);
         if(et){
-            /* et.classList.replace("bg-blue-400","bg-zinc-400"); */
             et.style.backgroundColor="red";    
         }
             
@@ -58,7 +55,7 @@ export function generateExampleShowcases():ShowcaseItem[]{
 
 function replaceTokens(s:string, numberOfTokens:number, itemIndex:number):string{
     for (let x = 0; x<numberOfTokens; x++){
-        s.replaceAll(`%et${x+1}%`,`dp_${itemIndex+1}_et${x+1}`);
+        s=s.replaceAll(`%et${x+1}%`,`dp_${itemIndex+1}_et${x+1}`);
     }
     return s;
 }
@@ -70,24 +67,6 @@ export function generateShowcaseFromJSON(jItem:JSONShowcaseItem, itemIndex:numbe
     const ets:HTMLElement[] = [];
     const ehs:showcaseEventHandler[] = [];
     const ips:HTMLElement[] = [];
-
-    
-
-    /* const eHandlers: {[key:string]:showcaseEventHandler}= {} */
-    
-    /* jItem.eventHandlers.map((ev,ind)=>{
-        console.log("event handler, Arguments: "+ev.function.arguments+" body: "+ev.function.body," input index: ", ev.function.inputIndex, " target index: ", ev.function.targetIndex);
-        const fBody = ev.function.body;
-        
-        const eh = (Function(replaceTokens(fBody, ets.length, itemIndex)) as showcaseEventHandler);
-        document.getElementById((ips[Number(ev.function.inputIndex)]).id)?.addEventListener('click',eh);
-        ehs.push(eh);
-        
-    }) */
-    
-    /* eHandlers[`eH0${ind+1}`] = (Function(ev.function.body) as showcaseEventHandler) ; */
-    /* eHandlers.eH01(); */
-    /* eHandlers.index=1; */
 
     let sItem:UnmountedShowcaseItem = {
         title: jItem.title,
@@ -123,6 +102,16 @@ export function initializeShowcaseitem(item:UnmountedShowcaseItem, itemIndex:num
             ip.id = `cp_${itemIndex+1}_ip${index+1}`;
             item.inputs.push(ip);
         } 
+    })
+
+    item.JSONFunctions.map((ev,ind)=>{
+        const fBody = ev.function.body;
+        const updatedFBody =  replaceTokens(fBody, item.eventTargets.length, itemIndex);
+
+        const eh = (Function(updatedFBody) as showcaseEventHandler);
+        document.getElementById((item.inputs[Number(ev.function.inputIndex)]).id)?.addEventListener('click',eh);
+        item.eventHandlers.push(eh);
+        
     })
 
 }
