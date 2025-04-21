@@ -22,6 +22,13 @@ export interface JSONShowcaseItem{
     imageURL:string;
 }
 
+export interface UnmountedShowcaseItem extends ShowcaseItem{
+    JSONFunctions: JSONfunction[];
+    inputIDs: string[];
+    eventTargetIDs: string[];
+    initialized: boolean;
+}
+
 export interface ShowcaseItem{
     displayPanel: ReactNode;
     controlPanel: ReactNode;

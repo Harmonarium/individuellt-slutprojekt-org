@@ -1,5 +1,5 @@
 "use client"
-import { JSONShowcaseItem, showcaseEventHandler, ShowcaseItem } from "@/interfaces/showcase-item";
+import { JSONShowcaseItem, showcaseEventHandler, ShowcaseItem, UnmountedShowcaseItem } from "@/interfaces/showcase-item";
 import { fetchJSONShowcases } from "@/server_actions/json-actions";
 import { ReactElement } from "react";
 import JsxParser from "react-jsx-parser";
@@ -56,7 +56,14 @@ export function generateExampleShowcases():ShowcaseItem[]{
     return showcases;
 }
 
-export function generateShowcaseFromJSON(jItem:JSONShowcaseItem, itemIndex:number):ShowcaseItem{
+function replaceTokens(s:string, numberOfTokens:number, itemIndex:number):string{
+    for (let x = 0; x<numberOfTokens; x++){
+        s.replaceAll(`%et${x+1}%`,`dp_${itemIndex+1}_et${x+1}`);
+    }
+    return s;
+}
+
+export function generateShowcaseFromJSON(jItem:JSONShowcaseItem, itemIndex:number):UnmountedShowcaseItem{
     const cPanel = <JsxParser jsx={jItem.controlPanel} />
     const dPanel = <JsxParser jsx={jItem.displayPanel} />
 
@@ -64,35 +71,29 @@ export function generateShowcaseFromJSON(jItem:JSONShowcaseItem, itemIndex:numbe
     const ehs:showcaseEventHandler[] = [];
     const ips:HTMLElement[] = [];
 
-    jItem.eventTargetIDs.map((id, index)=>{
-        const et = document.getElementById(id);
-        if(et){
-            et.id=`dp_${itemIndex}_et${index}`;
-            ets.push(et);
-        } 
-    })
-
-    jItem.inputIDs.map((id, index)=>{
-        const ip = document.getElementById(id);
-        if(ip){
-            ip.id = `cp_${itemIndex}_ip${index}`;
-            ips.push(ip);
-        } 
-    })
+    
 
     /* const eHandlers: {[key:string]:showcaseEventHandler}= {} */
     
-    jItem.eventHandlers.map((ev,ind)=>{
+    /* jItem.eventHandlers.map((ev,ind)=>{
         console.log("event handler, Arguments: "+ev.function.arguments+" body: "+ev.function.body," input index: ", ev.function.inputIndex, " target index: ", ev.function.targetIndex);
-        const eh = (Function(ev.function.body) as showcaseEventHandler);
-        /* eHandlers[`eH0${ind+1}`] = (Function(ev.function.body) as showcaseEventHandler) ; */
-    })
+        const fBody = ev.function.body;
+        
+        const eh = (Function(replaceTokens(fBody, ets.length, itemIndex)) as showcaseEventHandler);
+        document.getElementById((ips[Number(ev.function.inputIndex)]).id)?.addEventListener('click',eh);
+        ehs.push(eh);
+        
+    }) */
     
+    /* eHandlers[`eH0${ind+1}`] = (Function(ev.function.body) as showcaseEventHandler) ; */
     /* eHandlers.eH01(); */
     /* eHandlers.index=1; */
 
-    let sItem:ShowcaseItem = {
-        title:jItem.title,
+    let sItem:UnmountedShowcaseItem = {
+        title: jItem.title,
+        JSONFunctions: jItem.eventHandlers,
+        inputIDs: jItem.inputIDs,
+        eventTargetIDs: jItem.eventTargetIDs,
         description: jItem.description,
         imageURL: jItem.imageURL,
         displayPanel: dPanel, 
@@ -100,7 +101,28 @@ export function generateShowcaseFromJSON(jItem:JSONShowcaseItem, itemIndex:numbe
         eventTargets: ets,
         eventHandlers: ehs,
         inputs: ips,
+        initialized: false,
     }
 
     return sItem;
+}
+
+export function initializeShowcaseitem(item:UnmountedShowcaseItem, itemIndex:number){
+    
+    item.eventTargetIDs.map((id, index)=>{
+        const et = document.getElementById(id);
+        if(et){
+            et.id=`dp_${itemIndex+1}_et${index+1}`;
+            item.eventTargets.push(et);
+        } 
+    })
+
+    item.inputIDs.map((id, index)=>{
+        const ip = document.getElementById(id);
+        if(ip){
+            ip.id = `cp_${itemIndex+1}_ip${index+1}`;
+            item.inputs.push(ip);
+        } 
+    })
+
 }

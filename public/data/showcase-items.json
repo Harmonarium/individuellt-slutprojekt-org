@@ -9,7 +9,7 @@
             "inputIDs":["ip1","ip2"],
             "eventHandlers":[
                 {"function" : {"arguments":"target", "body":"console.log('clicked button in showcase -this function was generated from JSON-');" , "inputIndex": "0", "targetIndex": "0"}},
-                {"function" : {"arguments":"target", "body":"document.getElementById(target).style.backgroundColor='blue';" , "inputIndex": "1", "targetIndex": "0"}}
+                {"function" : {"arguments":"target", "body":"document.getElementById(%et1%).style.backgroundColor='blue';" , "inputIndex": "1", "targetIndex": "0"}}
             ],
             "imageURL":"/next.svg"
         },
@@ -21,8 +21,8 @@
             "eventTargetIDs": ["et1"],
             "inputIDs":["ip1","ip2"],
             "eventHandlers":[
-                {"function" : {"arguments":"target", "body":"document.getElementById(target).style.backgroundColor='green';" , "inputIndex": "0", "targetIndex": "0"}},
-                {"function" : {"arguments":"target", "body":"document.getElementById(target).style.backgroundColor='yellow';" , "inputIndex": "1", "targetIndex": "0"}}
+                {"function" : {"arguments":"target", "body":"document.getElementById(%et1%).style.backgroundColor='green';" , "inputIndex": "0", "targetIndex": "0"}},
+                {"function" : {"arguments":"target", "body":"document.getElementById(%et1%).style.backgroundColor='yellow';" , "inputIndex": "1", "targetIndex": "0"}}
             ],
             "imageURL":"/next.svg"
         }

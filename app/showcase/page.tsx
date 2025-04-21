@@ -1,12 +1,13 @@
 "use client"
 import ShowcaseContainer from "@/components/showcase/showcase-container";
-import { ShowcaseItem } from "@/interfaces/showcase-item";
-import { generateExampleShowcases} from "@/lib/showcase";
+import { ShowcaseItem, UnmountedShowcaseItem } from "@/interfaces/showcase-item";
+import { generateExampleShowcases, initializeShowcaseitem} from "@/lib/showcase";
 import { useState, useEffect } from "react";
 import { generateShowcasesFromJSON } from "@/lib/showcase-generator";
 
 export default function Showcase(){
-    const [showcases, setShowcases] = useState<ShowcaseItem[]>([])
+    const [index, setIndex] = useState(0);
+    const [showcases, setShowcases] = useState<ShowcaseItem[] | UnmountedShowcaseItem[]>([])
     const fetchShowcases = async ()=> {
         const shc = await generateShowcasesFromJSON();
         setShowcases(shc);
@@ -14,10 +15,16 @@ export default function Showcase(){
     useEffect(()=>{
         fetchShowcases();
     },[]);
+    useEffect(()=>{
+        const sitem = showcases[index];
+        if(sitem && "initialized" in sitem && !sitem.initialized){
+            initializeShowcaseitem(sitem, index);
+        }
+    },[showcases])
     
     return(
         <>
-            <ShowcaseContainer showcases={showcases} index={0}/>
+            <ShowcaseContainer showcases={showcases} index={index}/>
         </>
     );
 }
