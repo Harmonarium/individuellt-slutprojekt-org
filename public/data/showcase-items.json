@@ -1,0 +1,30 @@
+{
+    "showcases":[
+        {
+            "title":"Showcase 1",
+            "description":"An example showcase. Interact with inputs to make something happen in the display. (or interact with display directly)",
+            "displayPanel":"<div className='display-panel'><div id='et1' className='event-target showcase-box' style={{backgroundColor:'black'}}></div></div>",
+            "controlPanel":"<div className='control-panel'><input id='ip1' className='showcase-input showcase-input-button' type='button' value='Red' /><input id='ip2' className='showcase-input showcase-input-button' type='button' value='Blue' /></div>",
+            "eventTargetIDs": ["et1"],
+            "inputIDs":["ip1","ip2"],
+            "eventHandlers":[
+                {"function" : {"arguments":"target", "body":"document.getElementById('%et1%').style.backgroundColor='red';" , "inputIndex": "0", "targetIndex": "0"}},
+                {"function" : {"arguments":"target", "body":"document.getElementById('%et1%').style.backgroundColor='blue';" , "inputIndex": "1", "targetIndex": "0"}}
+            ],
+            "imageURL":"/next.svg"
+        },
+        {
+            "title":"Showcase 2",
+            "description":"An example showcase. Interact with inputs to make something happen in the display. (or interact with display directly)",
+            "displayPanel":"<div className='display-panel'><div id='et1' className='event-target showcase-box' style={{backgroundColor:'purple'}}></div></div>",
+            "controlPanel":"<div className='control-panel'><input id='ip1' className='showcase-input showcase-input-button' type='button' value='Green' /><input id='ip2' className='showcase-input showcase-input-button' type='button' value='Yellow' /></div>",
+            "eventTargetIDs": ["et1"],
+            "inputIDs":["ip1","ip2"],
+            "eventHandlers":[
+                {"function" : {"arguments":"target", "body":"document.getElementById('%et1%').style.backgroundColor='green';" , "inputIndex": "0", "targetIndex": "0"}},
+                {"function" : {"arguments":"target", "body":"document.getElementById('%et1%').style.backgroundColor='yellow';" , "inputIndex": "1", "targetIndex": "0"}}
+            ],
+            "imageURL":"/next.svg"
+        }
+    ]
+}

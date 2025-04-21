@@ -20,6 +20,9 @@
                 @apply bg-zinc-300 w-400 h-100;
                 .display-panel{
                     @apply flex;
+                    .showcase-box{
+                        @apply w-20 h-20;
+                    }
                 }
             }
         }
