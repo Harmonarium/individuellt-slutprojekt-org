@@ -2,6 +2,7 @@ import Link from "next/link";
 import Section from "../section";
 import Image from "next/image";
 
+
 interface SampleProject{
     title:string;
     description:string;
@@ -19,8 +20,21 @@ function SampleProjectListItem({item}:{item:SampleProject}){
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
             </div>
-            <Link href={item.projectUrl}><button className="sample-project-button">Take me there!</button></Link>
-            <Link href={item.githubUrl}><Image className="sample-project-social-media-image" src="/github.png" alt="github link" width={100} height={100}/></Link>
+            <div className="flex flex-col justify-center">
+                <Link className="button-link" href={item.projectUrl}>Take me there!</Link>
+            </div>
+            
+            <Link href={item.githubUrl} className="image-link"><img
+                src="/github.png"
+                alt="icon"
+                style={{
+                    width: '80px !important',
+                    height: '80px !important',
+                    display: 'block',
+                    border: '1px solid red', // debug visibility
+                }}
+                />
+            </Link>
         </li>
     );
 }
