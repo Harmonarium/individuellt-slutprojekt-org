@@ -1,5 +1,9 @@
+"use client"
+
 import Image from "next/image";
 import Section from "../section";
+import { useRouter } from "next/navigation";
+
 
 interface ShowcaseItem{
     id:number;
@@ -13,9 +17,10 @@ interface ShowcaseListItemProps{
 }
 
 function ShowcaseListItem({item}:ShowcaseListItemProps){
+    const router=useRouter();
 
     return (
-        <li className="showcase-list-item">
+        <li className="showcase-list-item" onClick={()=>router.push('/showcase')}>
             <Image src={item.imageUrl} alt={item.title} width={200} height={100} />
             <h3>{item.title}</h3>
             <p>{item.description}</p> 

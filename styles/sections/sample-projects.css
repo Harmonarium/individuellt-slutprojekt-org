@@ -6,13 +6,20 @@
             .sample-project-list{
                 @apply flex flex-col gap-4;
                 .sample-project-list-item{
-                    @apply flex bg-linear-to-br from-crimson-700 to-crimson-300 p-4 gap-4;
+                    @apply flex bg-linear-to-br from-crimson-700 to-crimson-300 p-4 gap-4 transition hover:scale-105 duration-300 ease-in-out cursor-crosshair;
                     .sample-project-text{@apply flex flex-col gap-4 w-400;}
                     p{@apply text-xs;}
-                    button{@apply bg-crimson-300 rounded-2xl text-center text-xs justify-self-center;}
+                    .button-link{@apply bg-crimson-300 rounded-2xl text-center text-xs justify-self-center tracking-wide h-9;}
                     Image{@apply w-200 grow h-100;}
-                    Link{@apply grow w-10;}
-                    .sample-project-social-media-image{@apply h-10;}
+                    .image-link{
+                        width:100px;
+                        height:100px;
+                    }
+                    .sample-project-social-media-image{
+                        @apply grow;
+                        width:100px;
+                        height:100px;
+                    }
                 }
             }
         }
