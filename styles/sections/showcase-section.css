@@ -17,6 +17,12 @@
                     Image{
                         @apply bg-zinc-600 grow w-10;
                     }
+                    .display-panel{
+                        @apply w-90 h-40 bg-zinc-400;
+                        .event-target{
+                            @apply w-10 h-10;
+                        }
+                    }
                 }
             }
 
