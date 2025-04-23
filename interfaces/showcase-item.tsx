@@ -8,6 +8,7 @@ export interface JSONfunction{
         body:string;
         inputIndex:string,
         targetIndex:string,
+        type:string,
     }
 }
 

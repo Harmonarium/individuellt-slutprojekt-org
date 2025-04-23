@@ -53,9 +53,9 @@ export function generateExampleShowcases():ShowcaseItem[]{
     return showcases;
 }
 
-function replaceTokens(s:string, numberOfTokens:number, itemIndex:number):string{
+function replaceTokens(s:string, numberOfTokens:number, itemIndex:number, token:string, panel:string):string{
     for (let x = 0; x<numberOfTokens; x++){
-        s=s.replaceAll(`%et${x+1}%`,`dp_${itemIndex+1}_et${x+1}`);
+        s=s.replaceAll(`%${token}${x+1}%`,`${panel}_${itemIndex+1}_${token}${x+1}`);
     }
     return s;
 }
@@ -106,10 +106,11 @@ export function initializeShowcaseitem(item:UnmountedShowcaseItem, itemIndex:num
 
     item.JSONFunctions.map((ev,ind)=>{
         const fBody = ev.function.body;
-        const updatedFBody =  replaceTokens(fBody, item.eventTargets.length, itemIndex);
+        const updatedFBody =  replaceTokens(fBody, item.eventTargets.length, itemIndex, 'et', 'dp');
+        const newUpdatedFBody = replaceTokens(updatedFBody, item.inputs.length, itemIndex, 'ip', 'cp');
 
-        const eh = (Function(updatedFBody) as showcaseEventHandler);
-        document.getElementById((item.inputs[Number(ev.function.inputIndex)]).id)?.addEventListener('click',eh);
+        const eh = (Function(newUpdatedFBody) as showcaseEventHandler);
+        document.getElementById((item.inputs[Number(ev.function.inputIndex)]).id)?.addEventListener(ev.function.type,eh);
         item.eventHandlers.push(eh);
         
     })

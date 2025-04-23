@@ -59,10 +59,8 @@ export default function ShowcaseContainer({showcases, index = 0}:{showcases:Unmo
     useEffect(()=>{
         const sitem = showcases[currentIndex];
         if(sitem && ("initialized" in sitem) && !sitem.initialized)
-        initializeShowcaseitem(sitem, index);
+        initializeShowcaseitem(sitem, currentIndex);
     },[currentIndex]);
-
-    console.log("showcase container, showcases.length = "+showcases.length);
 
     if(showcases.length>0){
         return(
